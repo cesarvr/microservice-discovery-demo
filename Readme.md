@@ -8,6 +8,11 @@ Quick demo showcasing the Node.js Microservice discovery API for Openshift.
 ## Features
 
 - Discovery through environment variables.
+  - Look for surrounding services looking at environment variables.
+- DNS Lookup
+  - You can discover services that are in your same network/project in OSE3/Kubernetes.
+- DNS SRV
+  - Looking for services using this more robust [DNS specification](https://en.wikipedia.org/wiki/SRV_record). 
 
 ## More info
 
