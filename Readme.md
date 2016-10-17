@@ -1,7 +1,9 @@
 #Autodiscovery module for microservices (DEMO).
 
+Quick demo showcasing the Node.js Microservice discovery API for Openshift.
 
 ![](https://github.com/cesarvr/microservice-discovery-demo/blob/master/docs/captura.PNG)
+
 
 ## Features
 
