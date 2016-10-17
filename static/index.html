@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+         <meta charset="utf-8">
+         
+      <!-- Latest compiled and minified CSS -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+      <link href="css/style.css" rel="stylesheet">
+      <link href="css/solarize.css" rel="stylesheet">
+
+
+        <title>Discovery API</title>
+    </head>
+    <body>
+
+        <div class="container">
+          <form class="form-signin">
+            <h2 class="form-signin-heading" >Service Discovery</h2>
+            <input id="service_name" class="form-control" placeholder="service name" required="" autofocus="" value="redhat.com">
+            <button class="btn btn-lg btn-primary btn-block">Discover</button>
+
+            <pre id="console"><code class="json"></code></pre>
+          </form>
+
+        </div> <!-- /container -->
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/highlight.min.js"></script>
+        <script src="lib/app.js"></script>
+
+
+    </body>
+</html>
