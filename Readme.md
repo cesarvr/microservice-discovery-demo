@@ -5,6 +5,9 @@ Quick demo showcasing the Node.js Microservice discovery API for Openshift.
 ![](https://github.com/cesarvr/microservice-discovery-demo/blob/master/docs/captura.PNG)
 
 
+Just add this project using a your favorite node4 imagebuilder template, and you will be able to find nearby services. 
+
+
 ## Features
 
 - Discovery through environment variables.
