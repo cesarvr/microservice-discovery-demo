@@ -36,13 +36,14 @@ function searchInDNSSRV(_name){
 }
 
 function whoami(){
- return new Promise( (resolve, reject) => {
-    dns.lookupService('127.0.0.1', 80, (err, hostname, svc)=>{
-      if(err) reject(err);
-      resolve({name: hostname, info: searchInEnvVars(hostname) });
-    })
- });
+  let build = process.env['OPENSHIFT_BUILD_NAME'];
+    if(build){
+      let tmp = build.replace(/-\d+$/, '');
+      return { name: tmp , info: searchInEnvVars(tmp) };
+    }else
+      throw 'can\'t find openshift build name environment variable.';
 }
+
 
 /*
 function getService(name){
@@ -53,7 +54,6 @@ function getService(name){
 module.exports = {
   toServiceNotation: toServiceNotation,
   searchInEnvVars: searchInEnvVars,
-  //getService: getService,
   searchInDNS: searchInDNS,
   searchInDNSSRV: searchInDNSSRV,
   whoami: whoami

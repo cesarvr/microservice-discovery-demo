@@ -11,7 +11,9 @@ app.use('/', express.static(__dirname + '/static'));
 
 app.use('/whoami', (req, resp, next)=>{
   console.log('whoami->');
- discovery.whoami().then( (h)=> resp.status(200).send(h) ).catch( (e)=> req.status(500).send(e) );
+
+  resp.status(200).send(  discovery.whoami() );
+  
 });
 
 app.use('/discover', (req, resp, next)=>{
