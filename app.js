@@ -9,6 +9,11 @@ let app = express();
 
 app.use('/', express.static(__dirname + '/static'));
 
+app.use('/whoami', (req, resp, next)=>{
+  console.log('whoami->');
+ discovery.whoami().then( (h)=> resp.status(200).send(h) ).catch( (e)=> req.status(500).send(e) );
+});
+
 app.use('/discover', (req, resp, next)=>{
   console.log('req.params', req.query, 'req.body->', req.body);
 
@@ -16,13 +21,15 @@ app.use('/discover', (req, resp, next)=>{
   let rsp = {};
 
   rsp.env = discovery.searchInEnvVars(svcName);
+
   discovery.searchInDNS(svcName)
   .then(addr=>rsp.dns=addr)
   .then(()=>{
     discovery.searchInDNSServ(svcName).then((addr)=>{
        rsp.srv=JSON.stringify(addr);
-       resp.status(200).send(rsp);})
-  });
+       resp.status(200).send(rsp);
+     });
+  }).catch(()=> resp.status(200).send(rsp) );
 
 });
 

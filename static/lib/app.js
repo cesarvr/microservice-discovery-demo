@@ -1,9 +1,11 @@
 (function() {
 
-    function callSvc(_name) {
+
+    function callSvc(_name, svc) {
+
         $.ajax({
                 method: "GET",
-                url: "/discover",
+                url: "/" + svc,
                 data: {
                     service: _name
                 }
@@ -20,10 +22,17 @@
             });
     };
 
-    $('.btn-primary').click(function(e) {
+    $('#discovery').click(function(e) {
 
       e.preventDefault();
-      callSvc( $('#service_name').val() );
+      callSvc( $('#service_name').val(), 'discover' );
+    });
+
+
+    $('#whoami').click(function(e) {
+
+      e.preventDefault();
+      callSvc( null,'whoami' );
     });
 
 

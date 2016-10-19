@@ -25,23 +25,36 @@ function searchInDNS(_name){
   });
 }
 
-function searchInDNSServ(_name){
+// @Experimental
+function searchInDNSSRV(_name){
   return new Promise((resolve, reject) => {
     let service =dns.resolveSrv(_name, (err, addr, family) => {
-        if(err) resolve(err);
+        if(err) reject(err);
         resolve(addr);
     });
   });
 }
 
+function whoami(){
+ return new Promise( (resolve, reject) => {
+    dns.lookupService('127.0.0.1', 80, (err, hostname, svc)=>{
+      if(err) reject(err);
+      resolve({name: hostname, info: searchInEnvVars(hostname) });
+    })
+ });
+}
+
+/*
 function getService(name){
   return searchInEnvVars(name)
 }
+*/
 
 module.exports = {
   toServiceNotation: toServiceNotation,
   searchInEnvVars: searchInEnvVars,
-  getService: getService,
+  //getService: getService,
   searchInDNS: searchInDNS,
-  searchInDNSServ: searchInDNSServ
+  searchInDNSSRV: searchInDNSSRV,
+  whoami: whoami
 };
