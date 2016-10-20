@@ -1,6 +1,6 @@
 'use strict';
 let express = require('express');
-let discovery = require('./discovery');
+let discovery = require('sdiscovery');
 
 
 const PORT = 8080;
@@ -11,9 +11,7 @@ app.use('/', express.static(__dirname + '/static'));
 
 app.use('/whoami', (req, resp, next)=>{
   console.log('whoami->');
-
   resp.status(200).send(  discovery.whoami() );
-  
 });
 
 app.use('/discover', (req, resp, next)=>{
