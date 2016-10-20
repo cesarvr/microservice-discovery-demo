@@ -5,7 +5,7 @@ Quick demo showcasing the Node.js Microservice discovery API for Openshift.
 ![](https://github.com/cesarvr/microservice-discovery-demo/blob/master/docs/captura.PNG)
 
 
-Just add this project using a your favorite node4 imagebuilder template, and you will be able to find nearby services. 
+Just add this project using a your favourite Node4 ImageBuilder template, and you will be able to find nearby services, in this example use the discovery API to discovery connection details of the Mongodb pod.
 
 
 ## Features
@@ -15,7 +15,7 @@ Just add this project using a your favorite node4 imagebuilder template, and you
 - DNS Lookup
   - You can discover services that are in your same network/project in OSE3/Kubernetes.
 - DNS SRV
-  - Looking for services using this more robust [DNS specification](https://en.wikipedia.org/wiki/SRV_record). 
+  - Looking for services using this more robust [DNS specification](https://en.wikipedia.org/wiki/SRV_record).
 
 ## More info
 
